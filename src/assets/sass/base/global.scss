@@ -1,0 +1,16 @@
+html {
+  box-sizing: border-box;
+  direction: ltr;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-background;
+  color: $color-content;
+  font-family: $family-content;
+  font-size: $font-base;
+  line-height: $line-height;
+}

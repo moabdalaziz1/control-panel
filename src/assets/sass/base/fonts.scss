@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Cairo';
+  src: local('Cairo'), url('../fonts/Cairo-Regular.ttf') format('ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: local('Cairo'), url('../fonts/Cairo-Bold.ttf') format('ttf');
+  font-weight: bold;
+}
+
+$family-heading: 'Cairo', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+$family-content: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+  'Geeza pro', 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu 'sans-serif';
