@@ -7,11 +7,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    'bundle': './src/index.js',
+    'assets/js/banner': './src/assets/js/banner.js',
+  },
   output: {
     // publicPath: '/',
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
 
   devServer: {
@@ -81,6 +84,31 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/button.html',
+      filename: 'components/button.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/textfield.html',
+      filename: 'components/textfield.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/card.html',
+      filename: 'components/card.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/banner.html',
+      filename: 'components/banner.html',
+      chunks: ['bundle', 'assets/js/banner'],
     }),
   ],
 };
