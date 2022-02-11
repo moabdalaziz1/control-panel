@@ -8,8 +8,11 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   entry: {
-    'bundle': './src/index.js',
+    bundle: './src/index.js',
     'assets/js/banner': './src/assets/js/banner.js',
+    'assets/js/tabs': './src/assets/js/tabs.js',
+    'assets/js/upload': './src/assets/js/upload.js',
+    'assets/js/chart': './src/assets/js/chart.js',
   },
   output: {
     // publicPath: '/',
@@ -59,16 +62,31 @@ module.exports = {
         ],
       },
 
-      { // To Transform ES6 Syntax into normal javascript Syntax that browsers support.
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        exclude: /fonts/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images',
+            },
+          },
+        ],
+      },
+
+      {
+        // To Transform ES6 Syntax into normal javascript Syntax that browsers support.
         test: /\.js$/,
         exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-              options: {
-                presets: ['@babel/preset-env']
-              }
-          }
-      }
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
     ],
   },
 
@@ -109,6 +127,60 @@ module.exports = {
       template: './src/components/banner.html',
       filename: 'components/banner.html',
       chunks: ['bundle', 'assets/js/banner'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/list.html',
+      filename: 'components/list.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/tabs.html',
+      filename: 'components/tabs.html',
+      chunks: ['bundle', 'assets/js/tabs'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/upload.html',
+      filename: 'components/upload.html',
+      chunks: ['bundle', 'assets/js/upload'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/help.html',
+      filename: 'components/help.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/summary.html',
+      filename: 'components/summary.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/actions.html',
+      filename: 'components/actions.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/sidebar.html',
+      filename: 'components/sidebar.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/table.html',
+      filename: 'components/table.html',
+      chunks: ['bundle'],
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './src/components/chart.html',
+      filename: 'components/chart.html',
+      chunks: ['bundle', 'assets/js/chart'],
     }),
   ],
 };

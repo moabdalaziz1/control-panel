@@ -1,0 +1,48 @@
+.c-summary {
+  @include e-card;
+  display: inline-flex;
+  align-items: center;
+  padding: spacing('small') spacing('wide');
+}
+
+.c-summary__data {
+  display: flex;
+  flex-direction: column;
+  margin-right: spacing('normal');
+
+  &:last-child {
+    margin-right: spacing('none');
+  }
+}
+
+.c-summery__value {
+  font-family: $family-heading;
+  font-size: 28px;
+  font-weight: bold;
+
+  &--positive {
+    color: $color-blue;
+  }
+
+  &--negative {
+    color: $color-red;
+  }
+}
+
+.c-summery__key {
+  font-weight: normal;
+}
+
+.c-summary--boxless {
+  background: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+.c-summary--small {
+  padding: spacing('small') 0;
+  .c-summery__key, .c-summery__value {
+    font-size: 13px;
+    font-weight: normal;
+  }
+}

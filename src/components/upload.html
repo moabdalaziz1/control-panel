@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>upload Component's page</title>
+</head>
+
+<body>
+  <div class="component-container">
+    <div class="c-upload js-upload">
+      <header class="c-upload__header">
+        <h4 class="c-upload__title">Product Photo</h4>
+        <label for="upload-image" class="c-upload__label">Upload A Photo</label>
+        <span class="c-upload__label c-upload__label--remove js-upload-remove">Delete The Photo</span>
+      </header>
+      <div class="c-upload__body">
+        <div class="c-upload__image"><img class="js-upload-placeholdder"></div>
+        <input type="file" name="upload-image" id="upload-image" class="c-upload__field js-upload-value"
+          accept="image/*">
+        <span class="c-upload__subtitle">Drag The Image Here To Upload It</span>
+      </div>
+    </div>
+    <div class="c-upload c-upload--small js-upload">
+      <header class="c-upload__header">
+        <h4 class="c-upload__title">User Photo</h4>
+      </header>
+      <div class="c-upload__body">
+        <label for="upload-image" class="c-upload__label">Upload A Photo</label>
+        <img class="js-upload-placeholdder">
+        <input type="file" name="upload-image" id="upload-image" class="c-upload__field js-upload-value"
+          accept="image/*">
+      </div>
+      <span class="c-upload__label c-upload__label--remove js-upload-remove">Delete The Photo</span>
+    </div>
+  </div>
+</body>
+
+</html>
