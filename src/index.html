@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,49 @@
   <title>Home Page</title>
   <!-- <script type="text/html" src="{require('./assets/js/index.js')}"></script> -->
 </head>
+
 <body>
-  <div style="font-family: sans-serif;">
-    <h1>Test The Page</h1>
-    <p>This is p</p>
-    <span>This is span</span>
-    <button>Test</button>
+  <div class="page-container">
+    <sidebar></sidebar>
+    <div class="main-page">
+      <header class="home-intro">
+        <h2 class="welcome-tag">
+          Hi Mohamed, I Hope You Have A Nice Day. <br>
+          See What's Happening In Your Store
+        </h2>
+        <div class="c-summary">
+          <div class="c-summary__data">
+            <span class="c-summery__value">34</span>
+            <span class="c-summery__key">Order</span>
+          </div>
+          <div class="c-summary__data">
+            <span class="c-summery__value">1343</span>
+            <span class="c-summery__key">Visitor</span>
+          </div>
+          <div class="c-summary__data">
+            <span class="c-summery__value">$4324</span>
+            <span class="c-summery__key">Sales</span>
+          </div>
+        </div>
+      </header>
+      <action></action>
+      <div class="c-card">
+        <h3 class="c-card__title">Shipping information not found</h3>
+        <a href="#" class="c-btn c-btn--primary c-card__action">Shipping information link</a>
+        <p class="c-card__desc">
+          Shipping information is not available, you have already set up your site by making it sell
+          actual items, you have to fill in the shipping information in a store so that Okaz knows how to provide
+          shipping
+          to your customers.
+        </p>
+      </div>
+      <banner></banner>
+      <chart></chart>
+      <tab></tab>
+      <help></help>
+    </div>
   </div>
+
 </body>
+
 </html>

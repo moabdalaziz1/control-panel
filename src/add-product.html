@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+</head>
+
+<body>
+  <div class="page-container">
+    <sidebar></sidebar>
+    <div class="single-page">
+      <header class="page-header">
+        <h1 class="page-title">Add Product</h1>
+        <button class="c-btn c-btn--primary" type="submit" name="submit" form="add-product">Add Product</button>
+        <button class="c-btn" type="submit" name="draft" form="add-product">Save As Draft</button>
+      </header>
+      <form action="" class="c-form" name="add-product">
+        <div class="c-upload js-upload">
+          <header class="c-upload__header">
+            <h4 class="c-upload__title">Product Photo</h4>
+            <label for="upload-image" class="c-upload__label">Upload A Photo</label>
+            <span class="c-upload__label c-upload__label--remove js-upload-remove">Delete The Photo</span>
+          </header>
+          <div class="c-upload__body">
+            <div class="c-upload__image"><img class="js-upload-placeholdder"></div>
+            <input type="file" name="upload-image" id="upload-image" class="c-upload__field js-upload-value"
+              accept="image/*">
+            <span class="c-upload__subtitle">Drag The Image Here To Upload It</span>
+          </div>
+        </div>
+        <div class="c-form__controls">
+          <div class="c-form__row">
+            <div class="c-textfield">
+              <label for="product-name" class="c-textfield__label">Product Name</label>
+              <input type="text" class="c-textfield__input" id="product-name" placeholder="Enter Content" required>
+            </div>
+          </div>
+          <div class="c-form__row">
+            <div class="c-textfield">
+              <label for="product-price" class="c-textfield__label">Product Price</label>
+              <input type="number" class="c-textfield__input" id="product-price" placeholder="$" required>
+            </div>
+            <div class="c-textfield">
+              <label for="product-price-2" class="c-textfield__label">Secondary Price</label>
+              <input type="number" class="c-textfield__input" id="product-price-2" placeholder="EGP" required>
+            </div>
+          </div>
+          <div class="c-form__row">
+            <div class="c-textfield">
+              <label for="product-desc" class="c-textfield__label">Product Description</label>
+              <textarea class="c-textfield__textarea" id="product-desc" placeholder="Enter The Description"></textarea>
+            </div>
+          </div>
+          <div class="c-form__row">
+            <div class="c-textfield">
+              <label for="height" class="c-textfield__label">Dimensions</label>
+              <input type="number" class="c-textfield__input" id="height" required>
+              <span class="c-textfield__hint">Centimeters</span>
+            </div>
+            <div class="c-textfield">
+              <label for="width" class="c-textfield__label"><br></label>
+              <input type="number" class="c-textfield__input" id="width" required>
+              <span class="c-textfield__hint"></span>
+            </div>
+            <div class="c-textfield">
+              <label for="depth" class="c-textfield__label"><br></label>
+              <input type="number" class="c-textfield__input" id="depth" required>
+              <span class="c-textfield__hint"></span>
+            </div>
+            <div class="c-textfield">
+              <label for="weight" class="c-textfield__label">Weight</label>
+              <input type="number" class="c-textfield__input" id="weight" required>
+              <span class="c-textfield__hint">kg</span>
+            </div>
+          </div>
+        </div>
+      </form>
+      <help></help>
+    </div>
+  </div>
+</body>
+
+</html>

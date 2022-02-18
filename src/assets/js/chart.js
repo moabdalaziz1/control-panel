@@ -1,4 +1,4 @@
-import '../../../node_modules/chart.js/dist/chart.min.js';
+//import '../../../node_modules/chart.js/dist/chart.min.js';
 import { Chart } from '../../../node_modules/chart.js/dist/chart.min.js';
 
 (function () {
