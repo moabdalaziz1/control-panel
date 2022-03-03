@@ -1,10 +1,23 @@
 .c-tabs {
   @include e-card;
   width: 100%;
+  position: relative;
 }
 
 .c-tabs__control {
   display: flex;
+  overflow-x: auto;
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: floor(($line-height * $font-base) + (spacing() * 2.3));
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(-90deg, #fff 15px, transparent 30px);
+    pointer-events: none;
+  }
 }
 
 .c-tabs__tab {
@@ -12,6 +25,7 @@
   padding: spacing() spacing('small');
   flex-grow: 1;
   border-bottom: 3px solid transparent;
+  white-space:nowrap;
 }
 
 .c-tabs__tab.is-active {

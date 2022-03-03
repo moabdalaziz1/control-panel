@@ -1,4 +1,5 @@
 $product-media-size: 40px;
+$bp-table-column: 660px;
 
 .c-table {
   @include e-card;
@@ -10,13 +11,19 @@ $product-media-size: 40px;
   display: flex;
   align-items: center;
   margin-bottom: spacing('small');
-  padding: spacing('normal') spacing('normal') 0;
+  padding: (spacing('normal') / 2) spacing('normal') 0;
+  flex-wrap: wrap;
 }
 
 .c-table__title {
   font-size: 20px;
   margin-bottom: 0;
   margin-right: spacing('small');
+  margin-top: spacing() !important;
+}
+
+.c-table__actions {
+  margin-top: spacing();
 }
 
 .c-table__navigation {
@@ -24,6 +31,7 @@ $product-media-size: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: spacing();
 }
 
 .c-table__navigation__arrows {
@@ -41,11 +49,6 @@ $product-media-size: 40px;
 
   th,
   td {
-    &:first-child {
-      padding-left: spacing('normal');
-      width: 75px;
-    }
-
     padding: spacing('extra-small');
     border-bottom: 1px solid rgba(darken(white, 40%), 0.15);
   }
@@ -64,4 +67,82 @@ $product-media-size: 40px;
   flex-flow: row-reverse;
   padding-top: spacing('normal');
   padding-right: spacing('normal');
+}
+
+.c-table--select-all {
+  th,td {
+    &:first-child {
+      padding-left: spacing('normal');
+      width: 75px;
+    }
+  }
+}
+
+.c-table--select-all th:first-child input + label {
+  display: none;
+}
+
+// Responsive
+
+@media (max-width: $bp-table-column) {
+  .c-table__data {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  tbody, thead {
+    display: flex;
+    flex-grow: 1;
+    min-width: max-content;
+  }
+
+  tr {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-direction: column;
+  }
+
+  td, th {
+    padding: spacing('extra-small') spacing();
+  }
+
+  .c-table--select-all th:first-child input + label {
+    display: inline;
+  }
+
+  .c-table--select-all th:nth-child(2) label {
+    display: none;
+  }
+
+  .c-table--select-all {
+    th,td {
+      &:first-child {
+        padding-left: spacing();
+        width: initial;
+
+        input {
+          margin-right: spacing('extra-small');
+        }
+      }
+    }
+  }
+
+  .c-table--select-all td:first-child {
+    height: floor(13px * $line-height);
+    box-sizing: content-box;
+  }
+
+  .c-table--select-all th:nth-child(2) {
+    height: $product-media-size;
+    box-sizing: content-box;
+  }
+
+  .c-table--select-all th:nth-child(3), .c-table--select-all th:nth-child(1) {
+    order: -1;
+  }
+
+  .c-table--select-all th:nth-child(3), .c-table--select-all td:nth-child(2) {
+    border-bottom-color: transparent;
+  }
 }

@@ -3,7 +3,7 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: spacing('normal');
+  padding: (spacing('normal') / 2) spacing('normal');
   width: 100%;
 }
 
@@ -13,11 +13,20 @@
   font-weight: normal;
   font-size: 17px;
   margin-right: spacing();
+  margin-top: spacing('normal') / 2 !important;
+  margin-bottom: spacing('normal') / 2 !important;
+}
+
+.c-card__action {
+  margin-top: spacing('normal') / 2;
+  margin-bottom: spacing('normal') / 2;
 }
 
 .c-card__desc {
   width: 100%;
   font-size: 14px;
+  margin-top: spacing('normal') / 2;
+  margin-bottom: spacing('normal') / 2;
 }
 
 .c-card--no-desc {

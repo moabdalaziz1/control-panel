@@ -1,9 +1,11 @@
+$container-horizontal-spacing: spacing('small');
+
 .c-list {
   display: flex;
   align-items: center;
   width: 100%;
   background-color: #fff;
-  padding: spacing('extra-small') spacing('small');
+  padding: spacing('extra-small') $container-horizontal-spacing;
   box-shadow: 0 0 0 1px rgba(#000000, 0.05);
 }
 
@@ -32,4 +34,31 @@
 
 .c-list--table-row {
   display: table-row;
+}
+
+// Responsive
+
+@media (max-width: $bp-tablet-normal) {
+  .c-list {
+    flex-wrap: wrap;
+  }
+
+  .c-list__actions {
+    margin-right: initial;
+    margin-left: 0;
+    text-align: left;
+    opacity: 1;
+  }
+
+  .c-list__data:not(:first-of-type),
+  .c-list__actions {
+    width: 100%;
+    padding-top: spacing('extra-small');
+    padding-bottom: spacing('extra-small');
+    border-top: 1px solid #f8f8f8;
+    margin-left: -$container-horizontal-spacing;
+    margin-right: -$container-horizontal-spacing;
+    padding-left: $container-horizontal-spacing;
+    padding-right: $container-horizontal-spacing;
+  }
 }

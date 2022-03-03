@@ -1,6 +1,10 @@
 $sidebar-control-width: 35px;
 $sidebar-icon-size: 20px;
 $sidebar-logo-height: $sidebar-control-width;
+$sidebar-normal-padding: spacing('small');
+$sidebar-dense-padding: spacing();
+$shift: $sidebar-normal-padding - $sidebar-dense-padding;
+$dense-width: $sidebar-control-width + ($sidebar-dense-padding * 2) + $shift;
 
 .c-sidebar {
   width: $layout-sidebar;
@@ -9,8 +13,18 @@ $sidebar-logo-height: $sidebar-control-width;
   top: 0;
   left: 0;
   display: flex;
-  background-color: rgba(37,65,178,.1);;
-  padding: spacing('wide') spacing('small');
+  padding: spacing('wide') $sidebar-normal-padding;
+  z-index: 10;
+}
+
+.c-sidebar__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: $layout-sidebar;
+  background-color: rgba($color-blue-dark, 0.1);
+  z-index: 10;
 }
 
 .c-sidebar__control {
@@ -18,6 +32,8 @@ $sidebar-logo-height: $sidebar-control-width;
   flex-direction: column;
   align-items: center;
   width: $sidebar-control-width;
+  position: relative;
+  z-index: 20;
 }
 
 .c-sidebar__icon {
@@ -25,7 +41,7 @@ $sidebar-logo-height: $sidebar-control-width;
   height: $sidebar-icon-size;
   font-size: 16px;
   color: $color-dark;
-  margin: spacing('extra-small') 0;
+  margin: spacing('extra-small');
   display: block;
 }
 
@@ -54,6 +70,8 @@ $sidebar-logo-height: $sidebar-control-width;
 
 .c-sidebar__menu {
   margin-right: spacing('small');
+  position: relative;
+  z-index: 20;
 }
 
 .c-sidebar__title {
@@ -76,9 +94,48 @@ $sidebar-logo-height: $sidebar-control-width;
   margin-left: spacing('small');
   line-height: $sidebar-icon-size;
   flex-direction: row-reverse;
-  justify-content:flex-end;
+  justify-content: flex-end;
 
   & .c-icon {
     margin-right: spacing('extra-small');
+  }
+}
+
+//Responsive
+
+@media (max-width: $bp-tablet-normal-2) {
+  .c-sidebar {
+    overflow: hidden;
+    width: $dense-width;
+    padding-right: 0;
+    //transform: translateX($shift);
+    transition: transform 200ms 200ms, width 0s 200ms, padding-right 0s 200ms;
+  }
+
+  .c-sidebar__backdrop {
+    transform: scaleX(#{$dense-width / $layout-sidebar});
+    transform-origin: 0 100%;
+    transition: transform 200ms;
+  }
+
+  .c-sidebar__menu {
+    opacity: 0;
+    transition: opacity 200ms 0s;
+  }
+
+  .c-sidebar:hover {
+    width: $layout-sidebar;
+    overflow: visible;
+    padding-right: $sidebar-normal-padding;
+    transform: scaleX(1);
+    transition-delay: 0;
+    transition: transform 200ms;
+    .c-sidebar__backdrop {
+      transform: scaleX(1);
+    }
+    .c-sidebar__menu {
+      opacity: 1;
+      transition-delay: 200ms;
+    }
   }
 }

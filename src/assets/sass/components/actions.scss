@@ -10,8 +10,9 @@ $indicator-size: 10px;
 .c-action {
   display: flex;
   align-items: center;
-  padding: spacing('extra-small');
+  padding: (spacing('extra-small') / 2) spacing('extra-small');
   border-bottom: 1px solid rgba(darken($color-brand, 40%), 0.1);
+  flex-wrap: wrap;
 
   &:last-child {
     border: none;
@@ -21,6 +22,9 @@ $indicator-size: 10px;
 .c-action__title {
   font-size: 14px;
   flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   // margin-right: auto;
 
   &::before {
@@ -29,7 +33,13 @@ $indicator-size: 10px;
     height: $indicator-size;
     border-radius: $indicator-size / 2;
     background-color: $color-brand;
-    display: inline-block; 
+    display: inline-block;
     margin-right: spacing();
   }
+}
+
+.c-action__link,
+.c-action__title {
+  margin-top: spacing('extra-small') / 2;
+  margin-bottom: spacing('extra-small') / 2;
 }
